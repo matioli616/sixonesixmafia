@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SIX ONE SIX MAFIA — Streetwear underground. Camisas limitadas, drumkits, presets e templates FL Studio.">
+<meta property="og:title" content="SIX ONE SIX MAFIA">
+<meta property="og:description" content="O número original era 616. Roma apagou. Nós vestimos.">
+<meta property="og:image" content="https://sixonesixmafia.vercel.app/og.jpg">
+<title>SIX ONE SIX MAFIA — Ordo Deletus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blood:#8B0000;
+  --blood-light:#CC2200;
+  --gold:#C9A84C;
+  --gold-light:#E8C96A;
+  --parchment:#F0E6CC;
+  --dark:#090705;
+  --dark2:#110D08;
+  --dark3:#191410;
+  --muted:#5A4E3C;
+  --text:#C8B89A;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--dark);
+  color:var(--text);
+  font-family:'IM Fell English',serif;
+  overflow-x:hidden;
+  cursor:crosshair;
+}
+
+/* GRAIN */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:.5;
+}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;
+  background:linear-gradient(to bottom,rgba(9,7,5,.98) 0%,rgba(9,7,5,.7) 80%,transparent);
+  border-bottom:1px solid rgba(201,168,76,.08);
+}
+.logo{
+  font-family:'Cinzel Decorative',serif;
+  font-size:12px;letter-spacing:5px;
+  color:var(--gold);text-decoration:none;
+  opacity:.9;
+}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  font-family:'Cinzel',serif;font-size:10px;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  transition:color .25s;
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{
+  font-family:'Cinzel',serif;font-size:10px;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);background:transparent;
+  border:1px solid rgba(201,168,76,.25);
+  padding:.45rem 1.2rem;cursor:pointer;
+  text-decoration:none;transition:all .25s;
+  display:inline-block;
+}
+.nav-cta:hover{background:rgba(201,168,76,.08);border-color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem}
+.hamburger span{display:block;width:22px;height:1px;background:var(--gold)}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;padding:7rem 2rem 5rem;
+  overflow:hidden;
+  text-align:center;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 40%,rgba(139,0,0,.14) 0%,transparent 70%),
+    radial-gradient(ellipse 25% 30% at 50% 50%,rgba(201,168,76,.05) 0%,transparent 55%);
+}
+.hero-seal{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(640px,90vw);height:min(640px,90vw);
+  opacity:.05;
+  animation:spin 180s linear infinite;
+}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+.hero-overline{
+  font-family:'Cinzel',serif;font-size:9px;
+  letter-spacing:8px;color:var(--blood-light);
+  text-transform:uppercase;margin-bottom:2rem;
+  opacity:.75;position:relative;z-index:1;
+}
+.hero-h1{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(2.8rem,8vw,6rem);
+  font-weight:900;line-height:.9;
+  color:var(--parchment);
+  text-shadow:0 0 100px rgba(139,0,0,.25);
+  position:relative;z-index:1;
+  margin-bottom:.4rem;
+}
+.hero-h1 em{color:var(--blood-light);font-style:normal}
+.hero-616{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(6rem,22vw,16rem);
+  font-weight:900;line-height:.85;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(201,168,76,.18);
+  letter-spacing:-6px;
+  position:relative;z-index:1;
+  margin-bottom:1.5rem;
+  user-select:none;
+}
+.hero-sub{
+  font-family:'IM Fell English',serif;
+  font-style:italic;
+  font-size:clamp(.95rem,2vw,1.25rem);
+  color:var(--muted);max-width:480px;
+  line-height:1.7;margin:0 auto 2.5rem;
+  position:relative;z-index:1;
+}
+.divider{
+  display:flex;align-items:center;gap:1.2rem;
+  width:min(360px,80%);margin:0 auto 2.5rem;
+  position:relative;z-index:1;
+}
+.divider-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.35),transparent)}
+.divider-glyph{color:var(--gold);opacity:.5;font-size:1rem;letter-spacing:2px}
+.hero-cta{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  justify-content:center;position:relative;z-index:1;
+}
+.btn-primary{
+  font-family:'Cinzel',serif;font-size:10px;
+  letter-spacing:4px;text-transform:uppercase;
+  color:var(--dark);background:var(--gold);
+  border:none;padding:.9rem 2.5rem;
+  cursor:pointer;text-decoration:none;
+  display:inline-block;transition:all .25s;
+}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-ghost{
+  font-family:'Cinzel',serif;font-size:10px;
+  letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);background:transparent;
+  border:1px solid rgba(201,168,76,.25);
+  padding:.9rem 2.5rem;cursor:pointer;
+  text-decoration:none;display:inline-block;
+  transition:all .25s;
+}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(201,168,76,.05)}
+.scroll-hint{
+  position:absolute;bottom:2rem;left:50%;
+  transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  animation:pulse 2.5s ease-in-out infinite;
+  z-index:1;
+}
+@keyframes pulse{0%,100%{opacity:.15}50%{opacity:.4}}
+.scroll-hint span{font-family:'Cinzel',serif;font-size:8px;letter-spacing:5px;color:var(--gold)}
+.scroll-hint-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--gold),transparent)}
+
+/* ─── SECTION COMMON ─── */
+.sep{
+  display:flex;align-items:center;gap:1.5rem;
+  padding:0 3rem;max-width:700px;margin:0 auto;
+}
+.sep-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.18),transparent)}
+.sep-sym{font-family:'Cinzel',serif;color:var(--gold);opacity:.3;font-size:.9rem;letter-spacing:4px}
+
+.eyeline{
+  font-family:'Cinzel',serif;font-size:9px;
+  letter-spacing:6px;text-transform:uppercase;
+  color:var(--blood-light);margin-bottom:1rem;
+  display:block;opacity:.8;
+}
+.section-h{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(1.7rem,4vw,3rem);
+  color:var(--parchment);font-weight:700;
+  margin-bottom:1rem;
+}
+.section-p{
+  font-family:'IM Fell English',serif;
+  font-style:italic;font-size:1rem;
+  color:var(--muted);line-height:1.85;
+}
+
+/* ─── LORE ─── */
+.lore-wrap{
+  max-width:1080px;margin:0 auto;
+  padding:8rem 2.5rem;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:6rem;align-items:center;
+}
+.lore-number{
+  font-family:'Cinzel Decorative',serif;
+  font-size:7rem;font-weight:900;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(201,168,76,.12);
+  line-height:1;margin-bottom:1rem;
+  user-select:none;
+}
+blockquote{
+  border-left:2px solid var(--blood);
+  padding:1.5rem 0 1.5rem 2rem;
+}
+blockquote p{
+  font-family:'IM Fell English',serif;
+  font-style:italic;font-size:1.35rem;
+  line-height:1.75;color:var(--parchment);
+  margin-bottom:1.5rem;
+}
+blockquote cite{
+  font-family:'Cinzel',serif;font-size:10px;
+  letter-spacing:3px;color:var(--gold);
+  font-style:normal;opacity:.75;
+}
+
+/* ─── PRODUCTS ─── */
+.products-wrap{
+  padding:6rem 2.5rem;
+  background:linear-gradient(to bottom,transparent,rgba(17,13,8,.8),transparent);
+}
+.products-inner{max-width:1200px;margin:0 auto}
+.products-head{text-align:center;margin-bottom:4rem}
+.products-head .divider{margin-top:1.5rem}
+.grid-products{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:2px;
+}
+.pcard{
+  position:relative;overflow:hidden;
+  aspect-ratio:3/4;background:var(--dark2);
+  cursor:pointer;
+}
+.pcard-placeholder{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--dark2),var(--dark3));
+}
+.pcard-placeholder svg{opacity:.12;width:140px}
+.pcard-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;opacity:.65;
+  transition:opacity .5s,transform .6s;
+  filter:contrast(1.1) grayscale(15%);
+}
+.pcard:hover .pcard-img{opacity:.85;transform:scale(1.05)}
+.pcard-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(9,7,5,.97) 0%,rgba(9,7,5,.25) 55%,transparent 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:1.5rem;
+  transition:background .4s;
+}
+.pcard:hover .pcard-overlay{background:linear-gradient(to top,rgba(9,7,5,.99) 0%,rgba(9,7,5,.35) 55%,transparent 100%)}
+.pcard-seal{
+  font-family:'Cinzel',serif;font-size:9px;
+  letter-spacing:4px;color:var(--blood-light);
+  margin-bottom:.5rem;
+}
+.pcard-name{
+  font-family:'Cinzel',serif;font-size:.95rem;
+  font-weight:700;color:var(--parchment);
+  line-height:1.2;margin-bottom:.25rem;
+}
+.pcard-sub{
+  font-family:'IM Fell English',serif;
+  font-style:italic;font-size:.82rem;
+  color:var(--muted);margin-bottom:1rem;
+}
+.pcard-footer{display:flex;align-items:center;justify-content:space-between}
+.pcard-price{
+  font-family:'Cinzel',serif;font-size:.9rem;color:var(--gold);
+}
+.pcard-btn{
+  font-family:'Cinzel',serif;font-size:9px;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--dark);background:var(--gold);
+  border:none;padding:.4rem 1rem;cursor:pointer;
+  transition:background .2s;text-decoration:none;
+  display:inline-block;
+}
+.pcard-btn:hover{background:var(--gold-light)}
+
+/* ─── DIGITAL ─── */
+.digital-wrap{
+  max-width:1080px;margin:0 auto;
+  padding:8rem 2.5rem;
+}
+.digital-head{text-align:center;margin-bottom:4.5rem}
+.grid-digital{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:1px;
+}
+.dcard{
+  background:var(--dark2);
+  padding:2.5rem 1.75rem;
+  border-top:2px solid transparent;
+  transition:border-color .3s,background .3s;
+}
+.dcard:hover{border-top-color:var(--blood);background:var(--dark3)}
+.dcard-icon{font-size:1.75rem;margin-bottom:1.25rem;opacity:.45}
+.dcard-tag{
+  font-family:'Cinzel',serif;font-size:8px;
+  letter-spacing:4px;color:var(--blood-light);
+  display:block;margin-bottom:.6rem;
+}
+.dcard-name{
+  font-family:'Cinzel',serif;font-size:1rem;
+  font-weight:600;color:var(--parchment);
+  margin-bottom:.6rem;
+}
+.dcard-desc{
+  font-family:'IM Fell English',serif;
+  font-style:italic;font-size:.88rem;
+  color:var(--muted);line-height:1.75;
+  margin-bottom:1.25rem;
+}
+.dcard-price{
+  font-family:'Cinzel',serif;font-size:.85rem;color:var(--gold);
+}
+.badge{
+  font-family:'Cinzel',serif;font-size:8px;
+  letter-spacing:2px;color:var(--muted);
+  border:1px solid rgba(90,78,60,.3);
+  padding:.15rem .65rem;margin-left:.6rem;
+  vertical-align:middle;
+}
+
+/* ─── MANIFESTO ─── */
+.manifesto-wrap{
+  padding:10rem 2.5rem;
+  text-align:center;position:relative;overflow:hidden;
+}
+.manifesto-bg-num{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-55%);
+  font-family:'Cinzel Decorative',serif;
+  font-size:28vw;font-weight:900;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(139,0,0,.055);
+  pointer-events:none;white-space:nowrap;
+  user-select:none;
+}
+.manifesto-inner{
+  position:relative;z-index:1;
+  max-width:640px;margin:0 auto;
+}
+.manifesto-latin{
+  font-family:'Cinzel',serif;font-size:10px;
+  letter-spacing:6px;color:var(--blood-light);
+  margin-bottom:3rem;opacity:.7;
+}
+.manifesto-text{
+  font-family:'IM Fell English',serif;
+  font-style:italic;
+  font-size:clamp(1.2rem,2.5vw,1.9rem);
+  line-height:1.75;color:var(--parchment);
+  margin-bottom:3.5rem;
+}
+.manifesto-text em{color:var(--blood-light);font-style:normal}
+
+/* ─── NEWSLETTER ─── */
+.newsletter-wrap{
+  max-width:560px;margin:0 auto;
+  padding:6rem 2.5rem;text-align:center;
+}
+.newsletter-wrap .section-h{margin-bottom:.75rem}
+.newsletter-wrap .section-p{margin-bottom:2rem}
+.newsletter-form{
+  display:flex;gap:0;
+  border:1px solid rgba(201,168,76,.2);
+}
+.newsletter-form input{
+  flex:1;
+  background:transparent;
+  border:none;outline:none;
+  font-family:'IM Fell English',serif;
+  font-style:italic;font-size:.95rem;
+  color:var(--parchment);
+  padding:.85rem 1.25rem;
+}
+.newsletter-form input::placeholder{color:var(--muted);opacity:.6}
+.newsletter-form button{
+  font-family:'Cinzel',serif;font-size:9px;
+  letter-spacing:3px;color:var(--dark);
+  background:var(--gold);border:none;
+  padding:.85rem 1.5rem;cursor:pointer;
+  transition:background .2s;white-space:nowrap;
+}
+.newsletter-form button:hover{background:var(--gold-light)}
+.newsletter-note{
+  font-family:'Cinzel',serif;font-size:9px;
+  letter-spacing:2px;color:var(--muted);
+  opacity:.5;margin-top:1rem;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  padding:4rem 2.5rem 2.5rem;
+  border-top:1px solid rgba(201,168,76,.07);
+  display:flex;flex-direction:column;
+  align-items:center;gap:2rem;
+}
+.footer-logo{
+  font-family:'Cinzel Decorative',serif;
+  font-size:1.1rem;color:var(--gold);
+  letter-spacing:3px;opacity:.55;
+}
+.footer-nav{display:flex;gap:3rem;list-style:none;flex-wrap:wrap;justify-content:center}
+.footer-nav a{
+  font-family:'Cinzel',serif;font-size:9px;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  transition:color .2s;
+}
+.footer-nav a:hover{color:var(--gold)}
+.footer-copy{
+  font-family:'Cinzel',serif;font-size:8px;
+  letter-spacing:2px;color:var(--muted);
+  opacity:.35;text-align:center;
+}
+
+/* ─── MOBILE ─── */
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-links.open{
+    display:flex;flex-direction:column;
+    position:fixed;top:0;left:0;right:0;bottom:0;
+    background:rgba(9,7,5,.98);
+    align-items:center;justify-content:center;
+    gap:3rem;z-index:400;
+  }
+  .nav-links.open a{font-size:1.1rem;letter-spacing:5px}
+  .lore-wrap{grid-template-columns:1fr;gap:3rem;padding:5rem 1.5rem}
+  .products-wrap{padding:5rem 1.5rem}
+  .digital-wrap{padding:5rem 1.5rem}
+  .manifesto-wrap{padding:6rem 1.5rem}
+  .newsletter-wrap{padding:4rem 1.5rem}
+  .newsletter-form{flex-direction:column}
+  .newsletter-form input{border-bottom:1px solid rgba(201,168,76,.15)}
+  .sep{padding:0 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">† 616 †</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#colecao" onclick="closeMenu()">Coleção</a></li>
+    <li><a href="#digital" onclick="closeMenu()">Digital</a></li>
+    <li><a href="#manifesto" onclick="closeMenu()">Manifesto</a></li>
+    <li><a href="#contato" onclick="closeMenu()">Contato</a></li>
+  </ul>
+  <a href="https://ptustp-cx.myshopify.com/collections/616-mafia" target="_blank" class="nav-cta" style="display:none" id="navShopBtn">Loja →</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-seal" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="200" cy="200" r="185" stroke="#C9A84C" stroke-width=".6"/>
+    <circle cx="200" cy="200" r="165" stroke="#C9A84C" stroke-width=".3"/>
+    <polygon points="200,32 363,282 37,282" stroke="#C9A84C" stroke-width=".6"/>
+    <polygon points="200,368 37,118 363,118" stroke="#C9A84C" stroke-width=".6"/>
+    <circle cx="200" cy="200" r="35" stroke="#8B0000" stroke-width=".6"/>
+    <circle cx="200" cy="200" r="15" stroke="#8B0000" stroke-width=".4"/>
+    <text x="200" y="208" text-anchor="middle" font-family="serif" font-size="12" fill="#C9A84C" opacity=".7" letter-spacing="2">616</text>
+    <text x="200" y="22" text-anchor="middle" font-family="serif" font-size="8" fill="#C9A84C" opacity=".45" letter-spacing="4">ORDO</text>
+    <text x="200" y="395" text-anchor="middle" font-family="serif" font-size="8" fill="#C9A84C" opacity=".45" letter-spacing="4">DELETUS</text>
+    <text x="15" y="205" text-anchor="middle" font-family="serif" font-size="7" fill="#C9A84C" opacity=".3" letter-spacing="2" transform="rotate(-90 15 205)">VERITAS</text>
+    <text x="385" y="205" text-anchor="middle" font-family="serif" font-size="7" fill="#C9A84C" opacity=".3" letter-spacing="2" transform="rotate(90 385 205)">DELETA</text>
+  </svg>
+
+  <p class="hero-overline">† Ordo Deletus · Anno MMXXVI †</p>
+  <h1 class="hero-h1">SIX ONE SIX<br><em>MAFIA</em></h1>
+  <div class="hero-616" aria-hidden="true">616</div>
+  <p class="hero-sub">Em 1895, um papiro foi descoberto em Oxyrhynchus. O número original da Besta não era 666. Era 616. Roma apagou. A história mentiu.</p>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-glyph">†</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="hero-cta">
+    <a href="#colecao" class="btn-primary">Ver a Coleção</a>
+    <a href="#manifesto" class="btn-ghost">Ler o Manifesto</a>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <div class="scroll-hint-line"></div>
+    <span>Desça</span>
+  </div>
+</section>
+
+<!-- SEP -->
+<div class="sep"><div class="sep-line"></div><span class="sep-sym">† † †</span><div class="sep-line"></div></div>
+
+<!-- LORE -->
+<div class="lore-wrap">
+  <div>
+    <div class="lore-number" aria-hidden="true">616</div>
+    <span class="eyeline">O número verdadeiro</span>
+    <h2 class="section-h">Veritas<br>Deleta Est</h2>
+    <p class="section-p">
+      O Papyrus 115 de Oxyrhynchus registrou 616.<br>
+      O Codex Ephraemi confirmou.<br>
+      Dois mil anos depois, a Igreja canonizou 666 — e enterrou o original.<br><br>
+      Esta marca existe pra vestir o que eles tentaram apagar.
+    </p>
+  </div>
+  <blockquote>
+    <p>"Qvi habet intellectvm, computet numerum bestiae."<br><br>
+    Quem tem inteligência, calcule o número da Besta.</p>
+    <cite>— Apocalipse XIII · Papyrus 115 · Oxyrhynchus, 1895</cite>
+  </blockquote>
+</div>
+
+<div class="sep"><div class="sep-line"></div><span class="sep-sym">✦</span><div class="sep-line"></div></div>
+
+<!-- PRODUCTS -->
+<section class="products-wrap" id="colecao">
+  <div class="products-inner">
+    <div class="products-head">
+      <span class="eyeline">Coleção · Ordo Deletus</span>
+      <h2 class="section-h">As Cinco Peças</h2>
+      <p class="section-p" style="max-width:500px;margin:0 auto">Cinco selos. Edição limitada numerada — 30 unidades por design. Estampa halftone DTF em algodão pesado 300g.</p>
+      <div class="divider"><div class="divider-line"></div><span class="divider-glyph">†</span><div class="divider-line"></div></div>
+    </div>
+
+    <div class="grid-products">
+
+      <div class="pcard">
+        <div class="pcard-placeholder">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="100" cy="100" r="88" stroke="#C9A84C" stroke-width="1"/>
+            <polygon points="100,18 178,142 22,142" stroke="#8B0000" stroke-width="1"/>
+            <polygon points="100,182 22,58 178,58" stroke="#8B0000" stroke-width="1"/>
+            <circle cx="100" cy="100" r="20" stroke="#C9A84C" stroke-width=".8"/>
+            <text x="100" y="107" text-anchor="middle" font-family="serif" font-size="18" fill="#C9A84C">I</text>
+          </svg>
+        </div>
+        <div class="pcard-overlay">
+          <p class="pcard-seal">Selo I · Limitado 30 unidades</p>
+          <h3 class="pcard-name">Void Herald</h3>
+          <p class="pcard-sub">Invocation of Darkness</p>
+          <div class="pcard-footer">
+            <span class="pcard-price">R$189,90</span>
+            <a href="https://ptustp-cx.myshopify.com" target="_blank" class="pcard-btn">Comprar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-placeholder">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="100" cy="100" r="88" stroke="#C9A84C" stroke-width="1"/>
+            <rect x="38" y="38" width="124" height="124" stroke="#8B0000" stroke-width="1" transform="rotate(45 100 100)"/>
+            <circle cx="100" cy="100" r="22" stroke="#C9A84C" stroke-width=".8"/>
+            <text x="100" y="107" text-anchor="middle" font-family="serif" font-size="16" fill="#C9A84C">II</text>
+          </svg>
+        </div>
+        <div class="pcard-overlay">
+          <p class="pcard-seal">Selo II · Limitado 30 unidades</p>
+          <h3 class="pcard-name">Gaius 616</h3>
+          <p class="pcard-sub">Divvs Insanus, The Mad God</p>
+          <div class="pcard-footer">
+            <span class="pcard-price">R$189,90</span>
+            <a href="https://ptustp-cx.myshopify.com" target="_blank" class="pcard-btn">Comprar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-placeholder">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="100" cy="100" r="88" stroke="#C9A84C" stroke-width="1"/>
+            <polygon points="100,14 182,152 18,152" stroke="#8B0000" stroke-width="1"/>
+            <polygon points="100,186 18,48 182,48" stroke="#8B0000" stroke-width="1"/>
+            <line x1="100" y1="12" x2="100" y2="188" stroke="#C9A84C" stroke-width=".4" opacity=".4"/>
+            <line x1="12" y1="100" x2="188" y2="100" stroke="#C9A84C" stroke-width=".4" opacity=".4"/>
+            <text x="100" y="107" text-anchor="middle" font-family="serif" font-size="14" fill="#C9A84C">III</text>
+          </svg>
+        </div>
+        <div class="pcard-overlay">
+          <p class="pcard-seal">Selo III · Limitado 30 unidades</p>
+          <h3 class="pcard-name">Terra Incognita</h3>
+          <p class="pcard-sub">Numerus Bestiae</p>
+          <div class="pcard-footer">
+            <span class="pcard-price">R$189,90</span>
+            <a href="https://ptustp-cx.myshopify.com" target="_blank" class="pcard-btn">Comprar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-placeholder">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="100" cy="100" r="88" stroke="#C9A84C" stroke-width="1"/>
+            <circle cx="100" cy="100" r="62" stroke="#8B0000" stroke-width=".8"/>
+            <circle cx="100" cy="100" r="35" stroke="#8B0000" stroke-width=".6"/>
+            <circle cx="100" cy="100" r="18" stroke="#C9A84C" stroke-width=".8"/>
+            <text x="100" y="107" text-anchor="middle" font-family="serif" font-size="13" fill="#C9A84C">IV</text>
+          </svg>
+        </div>
+        <div class="pcard-overlay">
+          <p class="pcard-seal">Selo IV · Limitado 30 unidades</p>
+          <h3 class="pcard-name">Veritas Deleta Est</h3>
+          <p class="pcard-sub">Deleted by Rome</p>
+          <div class="pcard-footer">
+            <span class="pcard-price">R$189,90</span>
+            <a href="https://ptustp-cx.myshopify.com" target="_blank" class="pcard-btn">Comprar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-placeholder">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="100" cy="100" r="88" stroke="#C9A84C" stroke-width="1"/>
+            <ellipse cx="100" cy="100" rx="68" ry="38" stroke="#8B0000" stroke-width=".8"/>
+            <ellipse cx="100" cy="100" rx="38" ry="68" stroke="#8B0000" stroke-width=".8"/>
+            <circle cx="100" cy="100" r="18" stroke="#C9A84C" stroke-width=".8"/>
+            <text x="100" y="107" text-anchor="middle" font-family="serif" font-size="12" fill="#C9A84C">V</text>
+          </svg>
+        </div>
+        <div class="pcard-overlay">
+          <p class="pcard-seal">Selo V · Limitado 30 unidades</p>
+          <h3 class="pcard-name">Duo In Uno 616</h3>
+          <p class="pcard-sub">Unus In Duobus</p>
+          <div class="pcard-footer">
+            <span class="pcard-price">R$189,90</span>
+            <a href="https://ptustp-cx.myshopify.com" target="_blank" class="pcard-btn">Comprar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div><span class="sep-sym">† † †</span><div class="sep-line"></div></div>
+
+<!-- DIGITAL -->
+<section class="digital-wrap" id="digital">
+  <div class="digital-head">
+    <span class="eyeline">Arsenal Sonoro</span>
+    <h2 class="section-h">Produtos Digitais</h2>
+    <p class="section-p" style="max-width:460px;margin:0 auto">Drumkits, presets e templates FL Studio com a energia da marca. Em breve disponíveis no Gumroad.</p>
+  </div>
+  <div class="grid-digital">
+    <div class="dcard">
+      <div class="dcard-icon">🥁</div>
+      <span class="dcard-tag">Drumkit · Em breve</span>
+      <h3 class="dcard-name">Drumkit 616</h3>
+      <p class="dcard-desc">Samples percussivos com textura ritual. Trap, dark ambient e sonoridade underground construídos do zero.</p>
+      <span class="dcard-price">A partir de R$49,90 <span class="badge">Em Breve</span></span>
+    </div>
+    <div class="dcard">
+      <div class="dcard-icon">🎛️</div>
+      <span class="dcard-tag">FL Studio · Em breve</span>
+      <h3 class="dcard-name">Presets FL Studio</h3>
+      <p class="dcard-desc">Soundscapes sombrios, leads cortantes e pads atmosféricos. Dark trap de verdade, sem preset genérico.</p>
+      <span class="dcard-price">A partir de R$39,90 <span class="badge">Em Breve</span></span>
+    </div>
+    <div class="dcard">
+      <div class="dcard-icon">📂</div>
+      <span class="dcard-tag">FL Studio · Em breve</span>
+      <h3 class="dcard-name">Templates FL Studio</h3>
+      <p class="dcard-desc">Projetos completos prontos pra usar. Mixagem, arranjo e sound design já configurados.</p>
+      <span class="dcard-price">A partir de R$69,90 <span class="badge">Em Breve</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto-wrap" id="manifesto">
+  <div class="manifesto-bg-num" aria-hidden="true">616</div>
+  <div class="manifesto-inner">
+    <p class="manifesto-latin">† Christi Servi Non Serviunt †</p>
+    <p class="manifesto-text">
+      Esta não é uma marca de moda.<br>
+      É um <em>documento</em>.<br><br>
+      Cada peça é evidência do que foi suprimido.<br>
+      Cada número é prova do que foi reescrito.<br>
+      Cada costura é <em>resistência</em> ao esquecimento.<br><br>
+      Trinta unidades. Numeradas à mão.<br>
+      Quando acabar, <em>acabou</em>.
+    </p>
+    <a href="#colecao" class="btn-primary">Ver a Coleção</a>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div><span class="sep-sym">✦</span><div class="sep-line"></div></div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-wrap" id="contato">
+  <span class="eyeline">Fique por dentro</span>
+  <h2 class="section-h">Aviso de Drop</h2>
+  <p class="section-p">Entre na lista. Quando o próximo drop abrir, você será o primeiro a saber.</p>
+  <form class="newsletter-form" onsubmit="handleForm(event)">
+    <input type="email" placeholder="seu@email.com" required id="emailInput">
+    <button type="submit">Entrar na Lista</button>
+  </form>
+  <p class="newsletter-note">† Sem spam. Só drops e lançamentos. †</p>
+  <p id="formMsg" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:#C9A84C;margin-top:1rem;min-height:1.2rem"></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SIX ONE SIX MAFIA</div>
+  <ul class="footer-nav">
+    <li><a href="#colecao">Coleção</a></li>
+    <li><a href="#digital">Digital</a></li>
+    <li><a href="#manifesto">Manifesto</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="https://ptustp-cx.myshopify.com" target="_blank">Loja</a></li>
+  </ul>
+  <p class="footer-copy">© MMXXVI · SIX ONE SIX MAFIA · † ORDO DELETUS · TODOS OS DIREITOS RESERVADOS †</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('navLinks').classList.remove('open');
+}
+function handleForm(e){
+  e.preventDefault();
+  const email = document.getElementById('emailInput').value;
+  const msg = document.getElementById('formMsg');
+  msg.textContent = '† ' + email + ' adicionado à lista. Ordo Deletus. †';
+  document.getElementById('emailInput').value = '';
+}
+// Smooth reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, {threshold: 0.1});
+document.querySelectorAll('.pcard, .dcard, .lore-wrap > *, blockquote').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity .7s ease, transform .7s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
