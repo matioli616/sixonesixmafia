@@ -1,0 +1,21 @@
+{
+  "name": "Six One Six Mafia Studio",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "foam.foam-vscode",
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint"
+      ],
+      "settings": {
+        "files.exclude": { "**/.git": true },
+        "editor.wordWrap": "on"
+      }
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "remoteEnv": {
+    "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}"
+  }
+}
